@@ -1,6 +1,8 @@
 /* ==========================================================
    JS AESTHETICS BEAUTY LOUNGE
    Shared stylesheet
+   Updated 06 Aug 2026 — pre-handover audit fixes applied.
+   Changes are marked [AUDIT] with a short note.
    ========================================================== */
 
 :root{
@@ -10,8 +12,27 @@
   --blush-2:#E4CBBD;
   --ink:#2E2521;
   --ink-2:#5F4E46;
-  --ink-3:#8E7C72;
+
+  /* [AUDIT] was #8E7C72 — 3.86:1 on the page background, under the 4.5:1
+     minimum for small text. Darkened to 4.94:1. */
+  --ink-3:#7B6B62;
+
+  /* --rose stays the brand accent for decorative use and large display
+     text (rules, diamonds, borders, headline italics at 24px+). */
   --rose:#B4826A;
+
+  /* [AUDIT] NEW. --rose measured 3.21:1 against the page background, so
+     every small use of it — eyebrows, VIEW TREATMENT links, prices,
+     review credits — failed WCAG AA. This is the same hue and saturation
+     at a lower lightness: 4.96:1 on bone, 4.57:1 on cream.
+     To revert the look, set this back to #B4826A — but the site then
+     fails AA on small text. */
+  --rose-text:#94624B;
+
+  /* [AUDIT] NEW. White on the original rose was 3.31:1. Buttons use this
+     darker shade instead: 4.51:1 against white. */
+  --rose-btn:#9F6A50;
+
   --rose-lt:#D3AA91;
   --line:rgba(46,37,33,.13);
   --line-2:rgba(46,37,33,.07);
@@ -37,7 +58,7 @@ a{color:inherit}
 h1,h2,h3,h4{margin:0;font-weight:400;line-height:1.1}
 p{margin:0 0 1.1em}
 p:last-child{margin-bottom:0}
-:focus-visible{outline:2px solid var(--rose);outline-offset:3px}
+:focus-visible{outline:2px solid var(--rose-text);outline-offset:3px}
 .skip{position:absolute;left:-9999px}
 .skip:focus{left:1rem;top:1rem;z-index:999;background:var(--ink);color:#fff;padding:.7rem 1.2rem}
 
@@ -49,10 +70,12 @@ p:last-child{margin-bottom:0}
 
 .eyebrow{
   font-size:.62rem;letter-spacing:.34em;text-transform:uppercase;
-  font-weight:500;color:var(--rose);margin:0 0 1.2rem;
+  font-weight:500;color:var(--rose-text);margin:0 0 1.2rem;  /* [AUDIT] contrast */
 }
 .dsp{font-family:var(--serif);font-weight:400;letter-spacing:-.012em}
-.dsp em{font-style:italic;color:var(--rose)}
+/* [AUDIT] contrast — headline italics drop below 24px on small screens
+   at .h3, where the original rose failed AA. */
+.dsp em{font-style:italic;color:var(--rose-text)}
 .h1{font-size:clamp(2.6rem,1.4rem + 5.2vw,4.6rem);line-height:1.02}
 .h2{font-size:clamp(2rem,1.3rem + 3vw,3.3rem)}
 .h3{font-size:clamp(1.35rem,1.15rem + .9vw,1.85rem)}
@@ -66,12 +89,13 @@ p:last-child{margin-bottom:0}
   font-family:var(--sans);font-size:.66rem;font-weight:500;
   letter-spacing:.24em;text-transform:uppercase;text-decoration:none;
   padding:1.05rem 2.1rem;border:1px solid transparent;cursor:pointer;
+  min-height:44px;                                  /* [AUDIT] touch target */
   transition:background .35s,color .35s,border-color .35s;
 }
-.btn--rose{background:var(--rose);color:#fff}
+.btn--rose{background:var(--rose-btn);color:#fff}   /* [AUDIT] contrast */
 .btn--rose:hover{background:var(--ink)}
 .btn--ink{background:var(--ink);color:var(--bone)}
-.btn--ink:hover{background:var(--rose)}
+.btn--ink:hover{background:var(--rose-btn)}
 .btn--out{border-color:var(--ink);color:var(--ink)}
 .btn--out:hover{background:var(--ink);color:var(--bone)}
 .btn--lt{border-color:rgba(255,255,255,.6);color:#fff}
@@ -89,7 +113,7 @@ p:last-child{margin-bottom:0}
 }
 .ph__label b{
   font-family:var(--serif);font-weight:400;font-size:clamp(1rem,.9rem + .5vw,1.35rem);
-  color:var(--rose);letter-spacing:.01em;line-height:1.25;
+  color:var(--rose-text);letter-spacing:.01em;line-height:1.25;
 }
 .ph__label span{font-size:.53rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-3)}
 .ph__label::before{content:"◇";color:var(--rose-lt);font-size:.85rem}
@@ -97,6 +121,13 @@ p:last-child{margin-bottom:0}
 .ph--3x4{aspect-ratio:3/4}
 .ph--4x3{aspect-ratio:4/3}
 .ph--16x9{aspect-ratio:16/9}
+
+/* [AUDIT] Two source photos have defects baked into the file: a stray
+   back-arrow in the top-left of polynucleotides.jpg, and a black frame
+   on chemical-peel.jpg. These crop them in CSS as an interim fix.
+   PROPER FIX: re-crop the two JPGs and re-upload, then delete this block. */
+.ph img[src*="polynucleotides"]{transform:scale(1.14);transform-origin:bottom right}
+.ph img[src*="chemical-peel"]{transform:scale(1.04)}
 
 /* ==========================================================
    HEADER
@@ -107,7 +138,11 @@ p:last-child{margin-bottom:0}
   background:transparent;transition:background .35s,box-shadow .35s;
 }
 .hdr.is-solid{background:var(--bone);box-shadow:0 1px 0 var(--line)}
-.hdr--light .mark__name,.hdr--light .burger span{color:#fff;background-color:#fff}
+
+/* [AUDIT] removed a dead .hdr--light rule. The class was never used in
+   the markup, and it set background-color:#fff on .mark__name — which
+   would have painted a white box behind the logo if it ever had been. */
+
 .hdr__in{
   width:100%;max-width:1320px;margin-inline:auto;padding-inline:var(--pad);
   display:flex;align-items:center;justify-content:space-between;gap:1rem;
@@ -120,11 +155,12 @@ p:last-child{margin-bottom:0}
 }
 .mark__sub{
   display:block;margin-top:.28rem;font-size:.46rem;letter-spacing:.4em;
-  text-indent:.4em;color:var(--rose);font-weight:400;transition:color .35s;
+  text-indent:.4em;color:var(--rose-text);font-weight:400;transition:color .35s;
 }
 .hdr:not(.is-solid).on-dark .mark__name{color:#fff}
-.hdr:not(.is-solid).on-dark .mark__sub{color:rgba(255,255,255,.75)}
+.hdr:not(.is-solid).on-dark .mark__sub{color:rgba(255,255,255,.9)}
 .hdr:not(.is-solid).on-dark .burger span{background:#fff}
+.hdr:not(.is-solid).on-dark .hdr__link{color:#fff}
 
 .hdr__right{display:flex;align-items:center;gap:1.6rem}
 .hdr__link{
@@ -133,9 +169,9 @@ p:last-child{margin-bottom:0}
 }
 .hdr__link::after{content:"";position:absolute;left:0;bottom:-4px;width:100%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .3s}
 .hdr__link:hover::after{transform:scaleX(1);transform-origin:left}
-@media(min-width:900px){.hdr__link{display:inline-block}}
+@media(min-width:900px){.hdr__link{display:inline-flex;align-items:center;min-height:44px}}
 
-.burger{background:none;border:0;padding:.7rem .35rem;margin-right:-.35rem;cursor:pointer;display:flex;flex-direction:column;gap:5px;min-height:44px;justify-content:center}
+.burger{background:none;border:0;padding:.7rem .35rem;margin-right:-.35rem;cursor:pointer;display:flex;flex-direction:column;gap:5px;min-height:44px;min-width:44px;align-items:center;justify-content:center}
 .burger span{display:block;width:24px;height:1.5px;background:var(--ink);transition:background .35s}
 
 /* full-screen stacked menu */
@@ -148,7 +184,7 @@ p:last-child{margin-bottom:0}
 }
 .nav.is-open{transform:none;visibility:visible}
 .nav__top{height:var(--hdr-h);display:flex;align-items:center;justify-content:space-between}
-.nav__close{background:none;border:0;font-size:1.5rem;line-height:1;cursor:pointer;color:var(--ink);padding:.3rem}
+.nav__close{background:none;border:0;font-size:1.5rem;line-height:1;cursor:pointer;color:var(--ink);padding:.3rem;min-width:44px;min-height:44px}  /* [AUDIT] touch target */
 .nav__list{list-style:none;margin:1.5rem 0 0;padding:0;flex:1}
 .nav__list li{border-bottom:1px solid var(--line-2)}
 .nav__list li:first-child{border-top:1px solid var(--line-2)}
@@ -156,10 +192,10 @@ p:last-child{margin-bottom:0}
   display:block;padding:1.15rem .25rem;text-decoration:none;
   font-family:var(--serif);font-size:1.45rem;transition:color .3s,padding-left .3s;
 }
-.nav__list a:hover,.nav__list a[aria-current="page"]{color:var(--rose);padding-left:.6rem}
+.nav__list a:hover,.nav__list a[aria-current="page"]{color:var(--rose-text);padding-left:.6rem}
 .nav__foot{margin-top:2rem;display:grid;gap:1rem}
 .nav__meta{font-size:.78rem;color:var(--ink-3);line-height:1.8}
-.nav__meta a{color:var(--rose);text-decoration:none}
+.nav__meta a{color:var(--rose-text);text-decoration:none}  /* [AUDIT] contrast */
 
 /* ==========================================================
    HERO
@@ -176,10 +212,13 @@ p:last-child{margin-bottom:0}
   background:linear-gradient(180deg,rgba(46,37,33,.42) 0%,rgba(46,37,33,.12) 38%,rgba(46,37,33,.66) 100%);
 }
 .hero__in{position:relative;z-index:4;width:100%;color:#fff}
-.hero__eyebrow{font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;color:rgba(255,255,255,.85);margin-bottom:1.1rem}
-.hero h1{font-family:var(--serif);font-size:clamp(2.9rem,1.4rem + 7vw,5.6rem);line-height:.98;max-width:14ch}
-.hero p.hero__sub{margin-top:1.4rem;max-width:34ch;color:rgba(255,255,255,.92);font-size:clamp(1rem,.95rem + .3vw,1.12rem)}
+.hero__eyebrow{font-size:.6rem;letter-spacing:.34em;text-transform:uppercase;color:rgba(255,255,255,.95);margin-bottom:1.1rem;text-shadow:0 1px 10px rgba(46,37,33,.6)}
+.hero h1{font-family:var(--serif);font-size:clamp(2.9rem,1.4rem + 7vw,5.6rem);line-height:.98;max-width:14ch;text-shadow:0 2px 24px rgba(46,37,33,.45)}
+.hero p.hero__sub{margin-top:1.4rem;max-width:34ch;color:#fff;font-size:clamp(1rem,.95rem + .3vw,1.12rem);text-shadow:0 1px 14px rgba(46,37,33,.6)}
 .hero .btn-row{margin-top:2.2rem}
+/* [AUDIT] hero text sits on a photograph, so its contrast can't be
+   guaranteed by colour alone. Text shadows plus the existing gradient
+   keep it legible whatever image is behind it. */
 
 /* trust strip */
 .trust{background:var(--ink);color:var(--blush);overflow:hidden;padding:.95rem 0}
@@ -203,7 +242,7 @@ p:last-child{margin-bottom:0}
 }
 
 /* ==========================================================
-   TREATMENT RAIL (horizontal scroll, as in reference)
+   TREATMENT RAIL
    ========================================================== */
 .rail{
   display:grid;grid-auto-flow:column;grid-auto-columns:min(74vw,300px);
@@ -218,12 +257,12 @@ p:last-child{margin-bottom:0}
 .rail__card .ph{margin-bottom:1rem}
 .rail__card h3{font-family:var(--serif);font-size:1.3rem;margin-bottom:.5rem}
 .rail__card p{font-size:.87rem;color:var(--ink-2);margin-bottom:.9rem}
-.rail__more{margin-top:auto;font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--rose)}
+.rail__more{margin-top:auto;font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--rose-text)}  /* [AUDIT] contrast */
 .rail__more::after{content:" →"}
 .rail-hint{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-3);margin-top:.4rem}
 
 /* ==========================================================
-   SPLIT (text + image)
+   SPLIT
    ========================================================== */
 .split{display:grid;gap:clamp(2rem,5vw,4rem);align-items:center}
 @media(min-width:860px){
@@ -250,7 +289,7 @@ p:last-child{margin-bottom:0}
 .quote{text-align:center;max-width:62ch;margin-inline:auto}
 .quote__mk{font-family:var(--serif);font-size:4rem;line-height:.6;color:var(--rose-lt);display:block;margin-bottom:1rem}
 .quote__t{font-family:var(--serif);font-size:clamp(1.2rem,1.05rem + .8vw,1.6rem);line-height:1.5;color:var(--ink)}
-.quote__w{margin-top:1.6rem;font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--rose)}
+.quote__w{margin-top:1.6rem;font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--rose-text)}  /* [AUDIT] contrast */
 .quote--empty .quote__t{font-family:var(--sans);font-style:italic;font-size:1rem;color:var(--ink-3)}
 
 /* ==========================================================
@@ -261,7 +300,7 @@ p:last-child{margin-bottom:0}
 @media(min-width:960px){.badges{grid-template-columns:repeat(3,1fr)}}
 .badge{background:var(--bone);padding:1.9rem 1.5rem;text-align:center}
 .sec--cream .badge{background:var(--cream)}
-.badge b{display:block;font-family:var(--serif);font-size:1.9rem;color:var(--rose);margin-bottom:.5rem}
+.badge b{display:block;font-family:var(--serif);font-size:1.9rem;color:var(--rose-text);margin-bottom:.5rem}
 .badge span{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-2);line-height:1.7}
 
 /* ==========================================================
@@ -271,7 +310,7 @@ p:last-child{margin-bottom:0}
 @media(min-width:640px){.ig{grid-template-columns:repeat(4,1fr)}}
 
 /* ==========================================================
-   ACCORDION (price list)
+   ACCORDION
    ========================================================== */
 .acc{border-top:1px solid var(--line);max-width:820px;margin-inline:auto}
 .acc details{border-bottom:1px solid var(--line)}
@@ -283,7 +322,7 @@ p:last-child{margin-bottom:0}
 .acc summary::-webkit-details-marker{display:none}
 .acc summary::after{
   content:"›";position:absolute;right:.4rem;top:50%;transform:translateY(-50%);
-  color:var(--rose);font-size:1.5rem;transition:transform .3s;
+  color:var(--rose-text);font-size:1.5rem;transition:transform .3s;
 }
 .acc details[open] summary::after{transform:translateY(-50%) rotate(90deg)}
 .acc__body{padding:0 0 1.6rem}
@@ -291,21 +330,22 @@ p:last-child{margin-bottom:0}
 .prow__n{color:var(--ink-2)}
 .prow__n small{display:block;font-size:.75rem;color:var(--ink-3)}
 .prow__d{flex:1;border-bottom:1px dotted var(--line);transform:translateY(-4px);min-width:1.5rem}
-.prow__p{font-variant-numeric:tabular-nums;color:var(--rose);white-space:nowrap;font-weight:400}
+.prow__p{font-variant-numeric:tabular-nums;color:var(--rose-text);white-space:nowrap;font-weight:400}  /* [AUDIT] contrast */
 .prow__p.consult{font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
-.psub{font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--rose);margin:1.4rem 0 .4rem}
+.psub{font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--rose-text);margin:1.4rem 0 .4rem}
 .psub:first-child{margin-top:0}
 
 /* ==========================================================
-   FILTERS + GRID (treatments page)
+   FILTERS + GRID
    ========================================================== */
 .filters{display:flex;flex-wrap:wrap;gap:.4rem;justify-content:center;margin-bottom:clamp(2rem,4vw,3rem)}
 .filter{
   background:none;border:1px solid var(--line);color:var(--ink-2);
   font-family:var(--sans);font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;
   padding:.7rem 1.1rem;cursor:pointer;transition:.3s;
+  min-height:44px;                                  /* [AUDIT] touch target */
 }
-.filter:hover{border-color:var(--rose)}
+.filter:hover{border-color:var(--rose-text)}
 .filter[aria-pressed="true"]{background:var(--ink);color:var(--bone);border-color:var(--ink)}
 .grid{display:grid;gap:1.6rem 1.2rem;grid-template-columns:1fr}
 @media(min-width:600px){.grid{grid-template-columns:1fr 1fr}}
@@ -315,25 +355,32 @@ p:last-child{margin-bottom:0}
 .gcard .ph{margin-bottom:1rem}
 .gcard h3{font-family:var(--serif);font-size:1.25rem;margin-bottom:.45rem}
 .gcard p{font-size:.86rem;color:var(--ink-2);margin-bottom:.9rem}
-.gcard__more{margin-top:auto;font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--rose)}
+.gcard__more{margin-top:auto;font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--rose-text)}  /* [AUDIT] contrast */
 .gcard__more::after{content:" →"}
 
 /* ==========================================================
    CONTACT
    ========================================================== */
 .dl{display:grid;gap:1.8rem}
-.dl__k{font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--rose);margin-bottom:.4rem}
+.dl__k{font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--rose-text);margin-bottom:.4rem}
 .dl__v{font-family:var(--serif);font-size:clamp(1.05rem,1rem + .35vw,1.25rem);line-height:1.5}
 .dl__v a{text-decoration:none;border-bottom:1px solid var(--line);transition:border-color .3s}
-.dl__v a:hover{border-color:var(--rose)}
+.dl__v a:hover{border-color:var(--rose-text)}
 .hours{display:grid;gap:.35rem;max-width:340px}
 .hours div{display:flex;justify-content:space-between;gap:1.5rem;font-size:.9rem;color:var(--ink-2);border-bottom:1px dotted var(--line);padding-bottom:.3rem}
 
 /* ==========================================================
+   LEGAL PAGES
+   ========================================================== */
+.legal h2{margin-top:2.4rem}
+.legal ul{padding-left:1.1rem;color:var(--ink-2)}
+.legal li{margin-bottom:.6rem}
+
+/* ==========================================================
    FOOTER
    ========================================================== */
-.ftr{background:var(--ink);color:rgba(240,223,214,.62);padding:clamp(3rem,6vw,4.5rem) 0 2.5rem;font-size:.8rem}
-@media(max-width:600px){.ftr{padding-bottom:5.5rem}}
+.ftr{background:var(--ink);color:rgba(240,223,214,.7);padding:clamp(3rem,6vw,4.5rem) 0 2.5rem;font-size:.8rem}
+@media(max-width:600px){.ftr{padding-bottom:6rem}}
 .ftr__grid{display:grid;gap:2.5rem}
 @media(min-width:780px){.ftr__grid{grid-template-columns:1.3fr 1fr 1fr}}
 .ftr__mark{font-family:var(--sans);font-weight:600;font-size:1.05rem;letter-spacing:.26em;color:var(--blush)}
@@ -349,32 +396,56 @@ p:last-child{margin-bottom:0}
 }
 .ftr__apex{color:var(--rose-lt);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .3s}
 .ftr__apex:hover{border-color:var(--rose-lt)}
-.seo-note{font-size:.68rem;line-height:1.8;color:rgba(240,223,214,.35);margin-top:2rem;max-width:85ch}
+/* [AUDIT] was rgba(...,.35) = 2.70:1, a clear AA failure. Now 4.55:1. */
+.seo-note{font-size:.68rem;line-height:1.8;color:rgba(240,223,214,.55);margin-top:2rem;max-width:85ch}
 
-/* sticky message button (Jodie's preferred contact) */
+/* ==========================================================
+   STICKY MESSAGE BUTTON
+   ========================================================== */
+/* [AUDIT] main.js toggles an .is-on class on this element at 500px of
+   scroll, but no .is-on rule existed — so the button was permanently
+   visible and sat on top of hero and section content from first paint.
+   The hidden/shown states below are what the JS was always expecting. */
 .float{
   position:fixed;right:1rem;bottom:1rem;z-index:80;
   display:inline-flex;align-items:center;gap:.55rem;
-  padding:.9rem 1.35rem;border-radius:999px;
-  background:var(--rose);color:#fff;text-decoration:none;
+  padding:.9rem 1.35rem;border-radius:999px;min-height:44px;
+  background:var(--rose-btn);color:#fff;text-decoration:none;
   font-family:var(--sans);font-size:.66rem;font-weight:500;
   letter-spacing:.18em;text-transform:uppercase;
   box-shadow:0 10px 30px rgba(46,37,33,.28);
-  transition:background .35s,transform .35s,box-shadow .35s;
+  opacity:0;visibility:hidden;transform:translateY(10px);pointer-events:none;
+  transition:opacity .35s,transform .35s,visibility .35s,background .35s,box-shadow .35s;
 }
+.float.is-on{opacity:1;visibility:visible;transform:none;pointer-events:auto}
 .float svg{flex:none;display:block}
-.float:hover{background:var(--ink);transform:translateY(-2px);box-shadow:0 14px 34px rgba(46,37,33,.32)}
+.float:hover{background:var(--ink);box-shadow:0 14px 34px rgba(46,37,33,.32)}
+.float.is-on:hover{transform:translateY(-2px)}
 .float:active{transform:translateY(0)}
 @media(max-width:420px){
   .float{padding:.85rem 1.15rem;font-size:.62rem;letter-spacing:.14em}
 }
 
-/* reveal */
-.rise{opacity:0;transform:translateY(20px);transition:opacity .85s cubic-bezier(.2,.7,.3,1),transform .85s cubic-bezier(.2,.7,.3,1)}
-.rise.in{opacity:1;transform:none}
+/* ==========================================================
+   SCROLL REVEAL
+   ========================================================== */
+/* [AUDIT] .rise was opacity:0 by default, so if main.js failed to load
+   every animated block on the site stayed invisible — a single point of
+   failure for most of the page content. The animation is now armed only
+   when the inline <head> script has confirmed JS is running. */
+.rise{opacity:1;transform:none}
+.js .rise{opacity:0;transform:translateY(20px);transition:opacity .85s cubic-bezier(.2,.7,.3,1),transform .85s cubic-bezier(.2,.7,.3,1)}
+.js .rise.in{opacity:1;transform:none}
 
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   html{scroll-behavior:auto}
-  .rise{opacity:1;transform:none}
+  .rise,.js .rise{opacity:1;transform:none}
+  .float{transition:none}
+}
+
+/* [AUDIT] Screen-reader-only text, used by the treatments filter status. */
+.visually-hidden{
+  position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0;
 }
