@@ -7,10 +7,17 @@
 <title>JS Aesthetics Beauty Lounge | Aesthetics Clinic in Bangor, North Down &amp; Ards</title>
 <meta name="description" content="Aesthetics and beauty clinic in Bangor, serving North Down and the Ards peninsula. Anti-wrinkle injections, lip and dermal filler, Profhilo, microneedling, dermaplaning, brows, lashes and waxing. Rated 5.0 on Google. Clearpay available.">
 <link rel="canonical" href="https://jakesloan2.github.io/JS-Aesthetics/">
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+
+<!-- ============================================================
+     PRE-LAUNCH: this site is on a staging URL and must NOT be
+     indexed. At launch, once the domain is live, replace the line
+     below with:
+     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+     ============================================================ -->
+<meta name="robots" content="noindex, nofollow">
+
 <meta name="theme-color" content="#FDFBFA">
 <meta name="author" content="JS Aesthetics Beauty Lounge">
-<meta name="keywords" content="aesthetics Bangor, aesthetics clinic Bangor, lip filler Bangor, anti-wrinkle injections Bangor, dermal filler North Down, aesthetics Ards peninsula, aesthetics Newtownards, aesthetics Holywood, aesthetics Donaghadee, aesthetics Comber, Profhilo Bangor, microneedling Bangor, dermaplaning Bangor, beauty salon Bangor, lip filler North Down, Botox Bangor">
 
 <meta name="geo.region" content="GB-NDN">
 <meta name="geo.placename" content="Bangor, County Down, Northern Ireland">
@@ -35,6 +42,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+
+<!-- Marks the document as JS-capable. Scroll-reveal animations are only
+     armed when this runs, so content can never be left invisible if
+     main.js fails to load. Must stay inline and in <head>. -->
+<script>document.documentElement.className+=" js";</script>
 
 <script type="application/ld+json">
 {
@@ -172,13 +184,6 @@
         "https://www.instagram.com/jsaestheticsbeautylounge",
         "https://www.facebook.com/share/1ErM4njNx9/"
       ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5",
-        "bestRating": "5",
-        "ratingCount": "34",
-        "reviewCount": "34"
-      },
       "founder": {
         "@id": "https://jakesloan2.github.io/JS-Aesthetics/#jodie"
       }
@@ -238,7 +243,7 @@
     <p class="nav__meta">
       4 Lord Wardens Court, Bangor, BT19 1GJ<br>
       <a href="tel:+447889178320">+44 7889 178320</a><br>
-      <a href="https://www.instagram.com/jsaestheticsbeautylounge" target="_blank" rel="noopener">Instagram</a> &nbsp;·&nbsp;
+      <a href="https://www.instagram.com/jsaestheticsbeautylounge" target="_blank" rel="noopener">Instagram</a> &nbsp;&middot;&nbsp;
       <a href="https://www.facebook.com/share/1ErM4njNx9/" target="_blank" rel="noopener">Facebook</a>
     </p>
   </div>
@@ -247,7 +252,7 @@
 <main id="main">
 
 <section class="hero">
-  <div class="hero__bg"><div class="ph "><img src="images/hero.jpg" alt="Aesthetics treatment at JS Aesthetics Beauty Lounge in Bangor, Northern Ireland" loading="lazy" onerror="this.remove()"><span class="ph__label"><b>JS Aesthetics Beauty Lounge</b><span>Hero image</span></span></div></div>
+  <div class="hero__bg"><div class="ph"><img src="images/hero.jpg" alt="" width="1600" height="1067" loading="eager" fetchpriority="high"><span class="ph__label"><b>JS Aesthetics Beauty Lounge</b><span>Hero image</span></span></div></div>
   <div class="hero__in wrap">
     <p class="hero__eyebrow">Bangor &middot; County Down</p>
     <h1>Feel like<br>you again.</h1>
@@ -259,20 +264,20 @@
   </div>
 </section>
 
-<div class="trust" aria-label="At a glance">
+<section class="trust" aria-label="At a glance">
   <div class="trust__track">
     <div class="trust__set">
       <span>&#9733;&#9733;&#9733;&#9733;&#9733; Rated 5.0 on Google</span><span>Clearpay &mdash; pay in 4</span>
       <span>Consultation with every injectable</span><span>Private one-to-one lounge</span>
       <span>Free parking outside</span><span>Bangor, Co. Down</span>
     </div>
-    <div class="trust__set">
+    <div class="trust__set" aria-hidden="true">
       <span>&#9733;&#9733;&#9733;&#9733;&#9733; Rated 5.0 on Google</span><span>Clearpay &mdash; pay in 4</span>
       <span>Consultation with every injectable</span><span>Private one-to-one lounge</span>
       <span>Free parking outside</span><span>Bangor, Co. Down</span>
     </div>
   </div>
-</div>
+</section>
 
 <section class="sec">
   <div class="wrap center">
@@ -291,45 +296,49 @@
 
 <section class="sec sec--tight">
   <div class="wrap">
+    <div class="center" style="margin-bottom:clamp(2rem,4vw,3rem)">
+      <p class="eyebrow rise">Popular treatments</p>
+      <h2 class="dsp h2 rise">What clients book <em>most</em></h2>
+    </div>
     <div class="rail">
-      <a class="rail__card rise" href="price-list.html">
-        <div class="ph ph--4x3"><img src="images/anti-wrinkle.jpg" alt="Anti-Wrinkle Injections at JS Aesthetics Beauty Lounge, Bangor" loading="lazy" onerror="this.remove()"><span class="ph__label"><b>Anti-Wrinkle Injections</b><span>From &pound;130</span></span></div>
+<a class="rail__card rise" href="price-list.html">
+        <div class="ph ph--4x3"><img src="images/anti-wrinkle.jpg" alt="Anti-Wrinkle Injections at JS Aesthetics Beauty Lounge, Bangor" width="1200" height="900" loading="lazy"><span class="ph__label"><b>Anti-Wrinkle Injections</b><span>From &pound;130</span></span></div>
         <h3>Anti-Wrinkle Injections</h3><p>Softens the lines that come from movement &mdash; forehead, frown and crow&rsquo;s feet &mdash; by relaxing the muscle rather than filling the line.</p>
         <span class="rail__more">View treatment</span>
       </a>
 <a class="rail__card rise" href="price-list.html">
-        <div class="ph ph--4x3"><img src="images/lip-filler.jpg" alt="Lip Filler at JS Aesthetics Beauty Lounge, Bangor" loading="lazy" onerror="this.remove()"><span class="ph__label"><b>Lip Filler</b><span>From &pound;120</span></span></div>
+        <div class="ph ph--4x3"><img src="images/lip-filler.jpg" alt="Lip Filler at JS Aesthetics Beauty Lounge, Bangor" width="1200" height="900" loading="lazy"><span class="ph__label"><b>Lip Filler</b><span>From &pound;120</span></span></div>
         <h3>Lip Filler</h3><p>Hyaluronic acid to restore volume, balance asymmetry and define shape. Placed conservatively so it still looks like your mouth.</p>
         <span class="rail__more">View treatment</span>
       </a>
 <a class="rail__card rise" href="price-list.html">
-        <div class="ph ph--4x3"><img src="images/dermal-filler.jpg" alt="Dermal Filler at JS Aesthetics Beauty Lounge, Bangor" loading="lazy" onerror="this.remove()"><span class="ph__label"><b>Dermal Filler</b><span>From &pound;120</span></span></div>
+        <div class="ph ph--4x3"><img src="images/dermal-filler.jpg" alt="Dermal Filler at JS Aesthetics Beauty Lounge, Bangor" width="1200" height="900" loading="lazy"><span class="ph__label"><b>Dermal Filler</b><span>From &pound;120</span></span></div>
         <h3>Dermal Filler</h3><p>For nasolabial folds and marionette lines &mdash; softening the creases that make a resting face look tired or cross.</p>
         <span class="rail__more">View treatment</span>
       </a>
 <a class="rail__card rise" href="price-list.html">
-        <div class="ph ph--4x3"><img src="images/profhilo.jpg" alt="Profhilo Skin Booster at JS Aesthetics Beauty Lounge, Bangor" loading="lazy" onerror="this.remove()"><span class="ph__label"><b>Profhilo Skin Booster</b><span>&pound;200</span></span></div>
+        <div class="ph ph--4x3"><img src="images/profhilo.jpg" alt="Profhilo Skin Booster at JS Aesthetics Beauty Lounge, Bangor" width="1200" height="900" loading="lazy"><span class="ph__label"><b>Profhilo Skin Booster</b><span>&pound;200</span></span></div>
         <h3>Profhilo Skin Booster</h3><p>Pure hyaluronic acid that spreads under the skin to hydrate and remodel rather than fill. Face or neck, two sessions four weeks apart.</p>
         <span class="rail__more">View treatment</span>
       </a>
 <a class="rail__card rise" href="price-list.html">
-        <div class="ph ph--4x3"><img src="images/microneedling.jpg" alt="Microneedling at JS Aesthetics Beauty Lounge, Bangor" loading="lazy" onerror="this.remove()"><span class="ph__label"><b>Microneedling</b><span>&pound;75</span></span></div>
+        <div class="ph ph--4x3"><img src="images/microneedling.jpg" alt="Microneedling at JS Aesthetics Beauty Lounge, Bangor" width="1200" height="900" loading="lazy"><span class="ph__label"><b>Microneedling</b><span>&pound;75</span></span></div>
         <h3>Microneedling</h3><p>Controlled micro-injury that switches collagen and elastin back on. Best for acne scarring, texture, pigmentation and pores.</p>
         <span class="rail__more">View treatment</span>
       </a>
 <a class="rail__card rise" href="price-list.html">
-        <div class="ph ph--4x3"><img src="images/dermaplaning.jpg" alt="Dermaplane Facial at JS Aesthetics Beauty Lounge, Bangor" loading="lazy" onerror="this.remove()"><span class="ph__label"><b>Dermaplane Facial</b><span>&pound;40</span></span></div>
+        <div class="ph ph--4x3"><img src="images/dermaplaning.jpg" alt="Dermaplane Facial at JS Aesthetics Beauty Lounge, Bangor" width="1200" height="900" loading="lazy"><span class="ph__label"><b>Dermaplane Facial</b><span>&pound;40</span></span></div>
         <h3>Dermaplane Facial</h3><p>Deep exfoliation that lifts dead skin and peach fuzz in one pass. Makeup sits flat and serums actually absorb.</p>
         <span class="rail__more">View treatment</span>
       </a>
 <a class="rail__card rise" href="price-list.html">
-        <div class="ph ph--4x3"><img src="images/henna-brows.jpg" alt="Henna Brows at JS Aesthetics Beauty Lounge, Bangor" loading="lazy" onerror="this.remove()"><span class="ph__label"><b>Henna Brows</b><span>&pound;28</span></span></div>
+        <div class="ph ph--4x3"><img src="images/henna-brows.jpg" alt="Henna Brows at JS Aesthetics Beauty Lounge, Bangor" width="1200" height="900" loading="lazy"><span class="ph__label"><b>Henna Brows</b><span>&pound;28</span></span></div>
         <h3>Henna Brows</h3><p>Stains the skin as well as the hair for a fuller, defined brow that lasts up to six weeks and conditions as it goes.</p>
         <span class="rail__more">View treatment</span>
       </a>
 <a class="rail__card rise" href="price-list.html">
-        <div class="ph ph--4x3"><img src="images/b12.jpg" alt="Vitamin B12 Injection at JS Aesthetics Beauty Lounge, Bangor" loading="lazy" onerror="this.remove()"><span class="ph__label"><b>Vitamin B12 Injection</b><span>&pound;25</span></span></div>
-        <h3>Vitamin B12 Injection</h3><p>Supports energy, focus and mood. Particularly useful for vegans, vegetarians and anyone running on empty.</p>
+        <div class="ph ph--4x3"><img src="images/b12.jpg" alt="Vitamin B12 Injection at JS Aesthetics Beauty Lounge, Bangor" width="1200" height="900" loading="lazy"><span class="ph__label"><b>Vitamin B12 Injection</b><span>&pound;25</span></span></div>
+        <h3>Vitamin B12 Injection</h3><p>Supports energy levels as part of a balanced diet. Particularly useful for vegans, vegetarians and anyone low on B12.</p>
         <span class="rail__more">View treatment</span>
       </a>
     </div>
@@ -347,7 +356,7 @@
       <p class="lede">Every injectable appointment starts with a proper consultation: medical history, an assessment of your facial structure and skin, and a realistic conversation about the outcome. If a treatment isn&rsquo;t right for you, Jodie will say so rather than sell it.</p>
       <div class="btn-row"><a class="btn btn--ink" href="contact.html">Book a consultation</a></div>
     </div>
-    <div class="split__media rise"><div class="ph ph--3x4"><img src="images/lounge.jpg" alt="The treatment room at JS Aesthetics Beauty Lounge, Bangor" loading="lazy" onerror="this.remove()"><span class="ph__label"><b>The Lounge</b><span>Treatment room</span></span></div></div>
+    <div class="split__media rise"><div class="ph ph--3x4"><img src="images/lounge.jpg" alt="The treatment room at JS Aesthetics Beauty Lounge, Bangor" width="900" height="1200" loading="lazy"><span class="ph__label"><b>The Lounge</b><span>Treatment room</span></span></div></div>
   </div>
 </section>
 
@@ -359,16 +368,16 @@
     </div>
     <div class="tiles tiles--4">
       <a class="tile rise" href="concerns.html">
-        <div class="ph ph--1x1"><img src="images/concern-1.jpg" alt="Fine Lines and Wrinkles" loading="lazy" onerror="this.remove()"><span class="ph__label"><b>Fine Lines &amp; Wrinkles</b><span>Concern</span></span></div>
+        <div class="ph ph--1x1"><img src="images/concern-1.jpg" alt="Fine Lines and Wrinkles" width="1000" height="1000" loading="lazy"><span class="ph__label"><b>Fine Lines &amp; Wrinkles</b><span>Concern</span></span></div>
         <span class="tile__cap"><h3>Fine Lines &amp; Wrinkles</h3><span>Learn more</span></span>
       </a><a class="tile rise" href="concerns.html">
-        <div class="ph ph--1x1"><img src="images/concern-2.jpg" alt="Thin or Uneven Lips" loading="lazy" onerror="this.remove()"><span class="ph__label"><b>Thin or Uneven Lips</b><span>Concern</span></span></div>
+        <div class="ph ph--1x1"><img src="images/concern-2.jpg" alt="Thin or Uneven Lips" width="1000" height="1000" loading="lazy"><span class="ph__label"><b>Thin or Uneven Lips</b><span>Concern</span></span></div>
         <span class="tile__cap"><h3>Thin or Uneven Lips</h3><span>Learn more</span></span>
       </a><a class="tile rise" href="concerns.html">
-        <div class="ph ph--1x1"><img src="images/concern-3.jpg" alt="Hooded and Tired Eyes" loading="lazy" onerror="this.remove()"><span class="ph__label"><b>Hooded &amp; Tired Eyes</b><span>Concern</span></span></div>
+        <div class="ph ph--1x1"><img src="images/concern-3.jpg" alt="Hooded and Tired Eyes" width="1000" height="1000" loading="lazy"><span class="ph__label"><b>Hooded &amp; Tired Eyes</b><span>Concern</span></span></div>
         <span class="tile__cap"><h3>Hooded &amp; Tired Eyes</h3><span>Learn more</span></span>
       </a><a class="tile rise" href="concerns.html">
-        <div class="ph ph--1x1"><img src="images/concern-4.jpg" alt="Acne Scarring" loading="lazy" onerror="this.remove()"><span class="ph__label"><b>Acne Scarring</b><span>Concern</span></span></div>
+        <div class="ph ph--1x1"><img src="images/concern-4.jpg" alt="Acne Scarring" width="1000" height="1000" loading="lazy"><span class="ph__label"><b>Acne Scarring</b><span>Concern</span></span></div>
         <span class="tile__cap"><h3>Acne Scarring</h3><span>Learn more</span></span>
       </a>
     </div>
@@ -378,33 +387,10 @@
 
 <section class="sec sec--cream">
   <div class="wrap center">
+    <p class="eyebrow rise">Why clients choose us</p>
     <p class="stars rise" style="color:var(--rose);font-size:1.6rem;letter-spacing:.3em">&#9733;&#9733;&#9733;&#9733;&#9733;</p>
     <h2 class="dsp h2 rise" style="margin-top:1.2rem">Rated <em>5.0</em> on Google</h2>
     <p class="lede rise" style="margin-top:1.4rem">Clients consistently rate JS Aesthetics five stars for results, care and the experience of being looked after properly.</p>
-    <div class="btn-row rise" style="justify-content:center">
-      <a class="btn btn--out" href="https://www.google.com/search?q=JS+Aesthetics+Beauty+Lounge+Bangor#lrd=0,1" target="_blank" rel="noopener">Read our reviews</a>
-    </div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="wrap split split--flip">
-    <div class="rise">
-      <p class="eyebrow">Aesthetics practitioner</p>
-      <h2 class="dsp h2">Jodie</h2>
-      <h3 class="dsp h3" style="margin-top:.8rem;color:var(--ink-2)">Advanced aesthetics in Bangor<br>&amp; across North Down</h3>
-      <p class="lede" style="margin-top:1.6rem">Jodie founded JS Aesthetics Beauty Lounge to do aesthetics the way she&rsquo;d want them done herself &mdash; unhurried, conservative, and honest about results.</p>
-      <p class="lede">She works one client at a time from a private lounge in Bangor, which means your appointment isn&rsquo;t squeezed between two others and you get the full consultation every single time. Aesthetics on one side, classic beauty on the other.</p>
-      <div class="btn-row"><a class="btn btn--out" href="about.html">Read more</a></div>
-    </div>
-    <div class="split__media rise"><div class="ph ph--3x4"><img src="images/jodie.jpg" alt="Jodie, aesthetics practitioner at JS Aesthetics Beauty Lounge, Bangor" loading="lazy" onerror="this.remove()"><span class="ph__label"><b>Jodie</b><span>Practitioner portrait</span></span></div></div>
-  </div>
-</section>
-
-<section class="sec sec--cream">
-  <div class="wrap center">
-    <p class="eyebrow rise">Why clients choose us</p>
-    <h2 class="dsp h2 rise">Rated <em>5.0</em> on Google</h2>
     <div class="badges rise">
       <div class="badge"><b>5.0</b><span>Average rating<br>on Google</span></div>
       <div class="badge"><b>&#9733;</b><span>Five-star reviews<br>across Google &amp; Facebook</span></div>
@@ -418,13 +404,25 @@
 </section>
 
 <section class="sec">
+  <div class="wrap split split--flip">
+    <div class="rise">
+      <p class="eyebrow">Aesthetics practitioner</p>
+      <h2 class="dsp h2">Jodie</h2>
+      <h3 class="dsp h3" style="margin-top:.8rem;color:var(--ink-2)">Advanced aesthetics in Bangor<br>&amp; across North Down</h3>
+      <p class="lede" style="margin-top:1.6rem">Jodie founded JS Aesthetics Beauty Lounge to do aesthetics the way she&rsquo;d want them done herself &mdash; unhurried, conservative, and honest about results.</p>
+      <p class="lede">She works one client at a time from a private lounge in Bangor, which means your appointment isn&rsquo;t squeezed between two others and you get the full consultation every single time. Aesthetics on one side, classic beauty on the other.</p>
+      <div class="btn-row"><a class="btn btn--out" href="about.html">Read more</a></div>
+    </div>
+    <div class="split__media rise"><div class="ph ph--3x4"><img src="images/jodie.jpg" alt="Jodie, aesthetics practitioner at JS Aesthetics Beauty Lounge, Bangor" width="900" height="1200" loading="lazy"><span class="ph__label"><b>Jodie</b><span>Practitioner portrait</span></span></div></div>
+  </div>
+</section>
+
+<section class="sec sec--cream">
   <div class="wrap center">
     <p class="eyebrow rise">Follow JS Aesthetics</p>
     <h2 class="dsp h2 rise">See the <em>work</em></h2>
     <p class="lede rise" style="margin-top:1.4rem">Before and afters, new treatments and last-minute cancellation slots all go up on Instagram first.</p>
-    <div class="ig">
-      <div class="ph ph--1x1"><img src="images/ig-1.jpg" alt="JS Aesthetics Beauty Lounge treatment result 1" loading="lazy" onerror="this.remove()"><span class="ph__label"><b>JS Aesthetics</b><span>Instagram 1</span></span></div><div class="ph ph--1x1"><img src="images/ig-2.jpg" alt="JS Aesthetics Beauty Lounge treatment result 2" loading="lazy" onerror="this.remove()"><span class="ph__label"><b>JS Aesthetics</b><span>Instagram 2</span></span></div><div class="ph ph--1x1"><img src="images/ig-3.jpg" alt="JS Aesthetics Beauty Lounge treatment result 3" loading="lazy" onerror="this.remove()"><span class="ph__label"><b>JS Aesthetics</b><span>Instagram 3</span></span></div><div class="ph ph--1x1"><img src="images/ig-4.jpg" alt="JS Aesthetics Beauty Lounge treatment result 4" loading="lazy" onerror="this.remove()"><span class="ph__label"><b>JS Aesthetics</b><span>Instagram 4</span></span></div>
-    </div>
+    <div class="ig"><div class="ph ph--1x1"><img src="images/ig-1.jpg" alt="JS Aesthetics Beauty Lounge treatment result 1" width="1000" height="1000" loading="lazy"><span class="ph__label"><b>JS Aesthetics</b><span>Instagram 1</span></span></div><div class="ph ph--1x1"><img src="images/ig-2.jpg" alt="JS Aesthetics Beauty Lounge treatment result 2" width="1000" height="1000" loading="lazy"><span class="ph__label"><b>JS Aesthetics</b><span>Instagram 2</span></span></div><div class="ph ph--1x1"><img src="images/ig-3.jpg" alt="JS Aesthetics Beauty Lounge treatment result 3" width="1000" height="1000" loading="lazy"><span class="ph__label"><b>JS Aesthetics</b><span>Instagram 3</span></span></div><div class="ph ph--1x1"><img src="images/ig-4.jpg" alt="JS Aesthetics Beauty Lounge treatment result 4" width="1000" height="1000" loading="lazy"><span class="ph__label"><b>JS Aesthetics</b><span>Instagram 4</span></span></div></div>
     <div class="btn-row" style="justify-content:center">
       <a class="btn btn--rose" href="https://www.instagram.com/jsaestheticsbeautylounge" target="_blank" rel="noopener">Follow on Instagram</a>
     </div>
@@ -444,7 +442,7 @@
           <a href="mailto:Beautyandaestheticsbyjodie@hotmail.com">Beautyandaestheticsbyjodie@hotmail.com</a>
         </p>
         <p style="margin-top:1.2rem">
-          <a href="https://www.instagram.com/jsaestheticsbeautylounge" target="_blank" rel="noopener">INSTAGRAM</a> &nbsp;·&nbsp;
+          <a href="https://www.instagram.com/jsaestheticsbeautylounge" target="_blank" rel="noopener">INSTAGRAM</a> &nbsp;&middot;&nbsp;
           <a href="https://www.facebook.com/share/1ErM4njNx9/" target="_blank" rel="noopener">FACEBOOK</a>
         </p>
       </div>
@@ -474,10 +472,11 @@
       </div>
     </div>
 
-    <p class="seo-note">JS Aesthetics Beauty Lounge is an aesthetics and beauty clinic in Bangor, County Down, Northern Ireland. Treatments include anti-wrinkle injections, lip filler and dermal filler, filler dissolving, Profhilo skin boosters, salmon DNA polynucleotides, PRP therapy, plasma fibroblast skin tightening, microneedling, chemical peels, LED light therapy, dermaplaning and luxury facials, vitamin B12 and biotin injections, henna and hybrid brows, brow lamination, Korean lash lift, lash and brow tinting, and waxing for women and men. Clients travel from across North Down and Ards including Newtownards, Holywood, Donaghadee, Groomsport, Comber, Helen&rsquo;s Bay and Belfast.</p>
+    <p class="seo-note">JS Aesthetics Beauty Lounge is a private aesthetics and beauty clinic in Bangor, County Down, offering injectables, regenerative skin treatments, facials, brows, lashes and waxing. Clients travel from across North Down and the Ards peninsula.</p>
 
     <div class="ftr__legal">
       <span>&copy; <span id="yr">2026</span> JS Aesthetics Beauty Lounge &mdash; all rights reserved.</span>
+      <span><a href="privacy.html">Privacy</a> &nbsp;&middot;&nbsp; <a href="terms.html">Terms</a></span>
       <span>Site by <a href="https://www.apexdesignni.co.uk" target="_blank" rel="noopener" class="ftr__apex">Apex</a>.</span>
     </div>
   </div>
