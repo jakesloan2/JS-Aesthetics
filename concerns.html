@@ -31,6 +31,7 @@
 
 <link rel="icon" href="images/favicon.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<link rel="preload" as="image" href="images/banner-concerns.jpg" imagesrcset="images/banner-concerns-sm.jpg 1300w, images/banner-concerns.jpg 2000w" imagesizes="100vw" fetchpriority="high">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -247,7 +248,7 @@
 <main id="main">
 
 <section class="hero hero--short">
-  <div class="hero__bg"><div class="ph "><img src="images/banner-concerns.jpg" alt="Skin and facial concerns treated at JS Aesthetics Beauty Lounge, Bangor" loading="lazy" onerror="this.remove()"><span class="ph__label"><b>Concerns</b><span>Page banner</span></span></div></div>
+  <div class="hero__bg"><div class="ph "><img src="images/banner-concerns.jpg" srcset="images/banner-concerns-sm.jpg 1300w, images/banner-concerns.jpg 2000w" sizes="100vw" alt="Skin and facial concerns treated at JS Aesthetics Beauty Lounge, Bangor" loading="eager" fetchpriority="high" decoding="async" onerror="this.remove()"><span class="ph__label"><b>Concerns</b><span>Page banner</span></span></div></div>
   <div class="hero__in wrap">
     <p class="hero__eyebrow">Conditions</p>
     <h1>What&rsquo;s bothering<br>you?</h1>
