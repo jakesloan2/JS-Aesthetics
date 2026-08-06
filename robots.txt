@@ -1,3 +1,6 @@
+# Pre-launch: the staging site is blocked by a noindex meta tag on
+# every page. This file only takes effect once the site is at the
+# root of its own domain.
 User-agent: *
 Allow: /
 
