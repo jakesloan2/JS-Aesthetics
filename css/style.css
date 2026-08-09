@@ -318,6 +318,20 @@ p:last-child{margin-bottom:0}
 .gcard__more{margin-top:auto;font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--rose)}
 .gcard__more::after{content:" →"}
 
+
+/* ==========================================================
+   GALLERY
+   ========================================================== */
+.gal{columns:1;column-gap:1rem}
+@media(min-width:620px){.gal{columns:2}}
+@media(min-width:1000px){.gal{columns:3;column-gap:1.2rem}}
+.gal__item{break-inside:avoid;margin:0 0 1rem;display:block;background:var(--cream);border:1px solid var(--line)}
+@media(min-width:1000px){.gal__item{margin-bottom:1.2rem}}
+.gal__item img{width:100%;height:auto;display:block}
+.gal__item figcaption{padding:.95rem 1.1rem 1.05rem}
+.gal__item figcaption b{display:block;font-family:var(--serif);font-weight:400;font-size:1.05rem;color:var(--ink)}
+.gal__item figcaption span{display:block;margin-top:.3rem;font-size:.82rem;color:var(--ink-3);line-height:1.5}
+
 /* ==========================================================
    CONTACT
    ========================================================== */
