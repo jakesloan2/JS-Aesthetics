@@ -343,6 +343,21 @@ p:last-child{margin-bottom:0}
 .hours{display:grid;gap:.35rem;max-width:340px}
 .hours div{display:flex;justify-content:space-between;gap:1.5rem;font-size:.9rem;color:var(--ink-2);border-bottom:1px dotted var(--line);padding-bottom:.3rem}
 
+
+/* ==========================================================
+   LEGAL PAGES
+   ========================================================== */
+.legal{max-width:70ch;margin:clamp(2.5rem,5vw,3.5rem) auto 0}
+.legal h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.2rem,1.1rem + .5vw,1.5rem);
+  margin:2.2rem 0 .9rem;padding-bottom:.6rem;border-bottom:1px solid var(--line)}
+.legal h2:first-child{margin-top:0}
+.legal p{font-size:.95rem;color:var(--ink-2);line-height:1.75;margin-bottom:1rem}
+.legal ul{margin:0 0 1.2rem;padding-left:0;list-style:none;display:grid;gap:.6rem}
+.legal li{font-size:.95rem;color:var(--ink-2);line-height:1.7;padding-left:1.4rem;position:relative}
+.legal li::before{content:"\25C7";position:absolute;left:0;top:.1rem;color:var(--rose);font-size:.65rem}
+.legal b{font-weight:500;color:var(--ink)}
+.legal a{color:var(--rose)}
+
 /* ==========================================================
    FOOTER
    ========================================================== */
